@@ -1,0 +1,9 @@
+{
+  "name": "TraefikAcmeToCerts",
+  "version": "1.0.0",
+  "description": "A script to create cert and key files from Traefik acme.json",
+  "main": "index.js",
+  "repository": "git@github.com:SushiFu/TraefikAcmeToCerts.git",
+  "author": "SushiFu",
+  "license": "MIT"
+}
