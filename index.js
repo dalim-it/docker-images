@@ -9,8 +9,10 @@ if (!acme.hasOwnProperty("DomainsCertificate") ||
 
 for (var cert of acme.DomainsCertificate.Certs) {
     let domain = cert.Certificate.Domain;
-    let certDump = "-----BEGIN CERTIFICATE-----\n" + cert.Certificate.Certificate + "\n-----END CERTIFICATE-----";
-    let keyDump = "-----BEGIN PRIVATE KEY-----\n" + cert.Certificate.PrivateKey + "\n-----END PRIVATE KEY-----";
+
+    var certDump = new Buffer(cert.Certificate.Certificate, 'base64');
+    var keyDump = new Buffer(cert.Certificate.PrivateKey, 'base64');
+
     fs.writeFileSync("./certs/" + domain + ".crt", certDump);
     fs.writeFileSync("./certs/" + domain + ".key", keyDump);
 }
