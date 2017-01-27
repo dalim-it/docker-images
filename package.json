@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:SushiFu/TraefikAcmeToCerts.git",
   "author": "SushiFu",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
