@@ -1,7 +1,9 @@
-FROM node:latest
-MAINTAINER SushiFu
+FROM node:alpine
+MAINTAINER Farfeduc
+
+RUN npm i -g nodemon
 
 WORKDIR /app
 COPY . /app
 
-CMD ["npm", "start"]
+CMD ["nodemon", "--watch", "", "index.js"]
