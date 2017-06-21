@@ -1,6 +1,6 @@
 var fs = require("fs");
 var path = require("path");
-var acme = require("acme/acme.json");
+var acme = require(__dirname + "/acme/acme.json");
 
 if (typeof(acme) !== 'undefined' && (!acme.hasOwnProperty("DomainsCertificate") ||
     !acme.DomainsCertificate.hasOwnProperty("Certs"))) {
