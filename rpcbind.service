@@ -1,0 +1,12 @@
+[Unit]
+Description=RPC bind service
+Requires=rpcbind.socket
+After=systemd-tmpfiles-setup.service
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/rpcbind
+ExecStart=/sbin/rpcbind $RPCBIND_ARGS
+
+[Install]
+Also=rpcbind.socket
