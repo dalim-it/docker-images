@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo 'root:$SSH_PWD' | chpasswd
+echo $SSH_PWD | passwd --stdin root
 /usr/lib/systemd/systemd --system
