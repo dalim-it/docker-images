@@ -3,7 +3,7 @@
 set_config() {
     key="$1"
     value="$2"
-    sed -ie "s/'$key'\s*,\s*'.*'/'$key', '$value'/" __swift/config/config.php
+    sed -i "s/'$key'\s*,\s*'.*'/'$key', '$value'/" __swift/config/config.php
 }
 
 set_config 'SWIFT_BASENAME' "$KAYAKO_BASENAME"
