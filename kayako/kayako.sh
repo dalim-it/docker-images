@@ -38,6 +38,10 @@ if [[ $RELAY_HOST != '' ]]; then
     fi
 fi
 
+if [[ $SMTP_USE_TLS != '' ]]; then
+    postconf -e smtp_use_tls=$SMTP_USE_TLS
+fi
+
 if [[ $ALWAYS_BCC != '' ]]; then
     postconf -e always_bcc=$ALWAYS_BCC
 fi

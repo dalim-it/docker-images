@@ -59,6 +59,7 @@ Variable name  | Description
 -------------- | -------------
 POSTFIX_ENABLE | Set to `false` if you don't want to start postfix server
 RELAY_HOST     | [relayhost](http://www.postfix.org/postconf.5.html#relayhost)
+SMTP_USE_TLS   | [smtp_use_tls](http://www.postfix.org/postconf.5.html#smtp_use_tls)
 ALWAYS_BCC     | [always_bcc](http://www.postfix.org/postconf.5.html#always_bcc)
 HEADER_CHECKS  | [header_checks](http://www.postfix.org/postconf.5.html#header_checks)
 MSG_SIZE_LIMIT | [message_size_limit](http://www.postfix.org/postconf.5.html#message_size_limit)
