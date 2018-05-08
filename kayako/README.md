@@ -1,10 +1,10 @@
 A standalone container to run [Kayako](https://www.kayako.com/) built on top of alpine Linux.
 
 This image contains:
-- Nginx web server
+- Nginx web server with PHP FPM
 - Needed PHP extensions to run Kayako
-- PHP cache accelerator (opcache) and a customizable postfix server.
-- Postfix server for  mailing needs
+- PHP cache accelerator (opcache)
+- Postfix server for advanced mailing needs
 
 # Usage
 
@@ -62,6 +62,17 @@ RELAY_HOST     | [relayhost](http://www.postfix.org/postconf.5.html#relayhost)
 ALWAYS_BCC     | [always_bcc](http://www.postfix.org/postconf.5.html#always_bcc)
 HEADER_CHECKS  | [header_checks](http://www.postfix.org/postconf.5.html#header_checks)
 MSG_SIZE_LIMIT | [message_size_limit](http://www.postfix.org/postconf.5.html#message_size_limit)
+
+### SMTP authentication using SASL
+The followings only apply if variable `RELAY_HOST` is used:
+
+Variable name              | Description
+-------------------------- | -------------
+SMTP_AUTH_HOST             | Used to generate `smtp_sasl_password_maps` (defaults to `$RELAY_HOST`)
+SMTP_AUTH_USER             | Used to generate `smtp_sasl_password_maps`
+SMTP_AUTH_PASSWORD         | Used to generate `smtp_sasl_password_maps`
+SMTP_AUTH_MECHANISM        | [smtp_sasl_mechanism_filter](http://www.postfix.org/postconf.5.html#smtp_sasl_mechanism_filter) (defaults to `plain,login`)
+SMTP_AUTH_SECURITY_OPTIONS | [smtp_sasl_security_options](http://www.postfix.org/postconf.5.html#smtp_sasl_security_options) (defaults to `noanonymous`)
 
 # Documentation
 
