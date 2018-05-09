@@ -20,10 +20,10 @@ chmod 755 /srv/web/console/index.php
 # Disable SMTPUTF8, because libraries (ICU) are missing in alpine
 postconf -e smtputf8_enable=no
 
-if [[ $RELAY_HOST != '' ]]; then
+if [[ ! -z $RELAY_HOST ]]; then
     postconf -e relayhost=$RELAY_HOST
 
-    if [[ $SMTP_AUTH_USER != '' &&  $SMTP_AUTH_PASSWORD != '' ]]; then
+    if [[ ! -z $SMTP_AUTH_USER && ! -z $SMTP_AUTH_PASSWORD ]]; then
 
         if [[ -z $SMTP_AUTH_HOST ]]; then
             SMTP_AUTH_HOST=$RELAY_HOST
@@ -38,19 +38,19 @@ if [[ $RELAY_HOST != '' ]]; then
     fi
 fi
 
-if [[ $SMTP_USE_TLS != '' ]]; then
+if [[ ! -z $SMTP_USE_TLS ]]; then
     postconf -e smtp_use_tls=$SMTP_USE_TLS
 fi
 
-if [[ $ALWAYS_BCC != '' ]]; then
+if [[ ! -z $ALWAYS_BCC ]]; then
     postconf -e always_bcc=$ALWAYS_BCC
 fi
 
-if [[ $HEADER_CHECKS != '' ]]; then
+if [[ ! -z $HEADER_CHECKS ]]; then
     postconf -e header_checks=$HEADER_CHECKS
 fi
 
-if [[ $MSG_SIZE_LIMIT != '' ]]; then
+if [[ ! -z $MSG_SIZE_LIMIT ]]; then
     postconf -e message_size_limit=$MSG_SIZE_LIMIT
 fi
 
